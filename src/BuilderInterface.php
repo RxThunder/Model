@@ -13,5 +13,6 @@ interface BuilderInterface
 {
     public function build($data);
 
+    public function validate(): void;
     public function map();
 }
