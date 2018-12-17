@@ -27,7 +27,7 @@ abstract class ModelRoute extends AbstractRoute
     {
         $dataModel = $subject->getDataModel();
 
-        Observable::of($dataModel)
+        return Observable::of($dataModel)
             ->filter([$this, 'validate'])
             ->map([$this, 'modelize'])
             ->flatMap($this->handler)
