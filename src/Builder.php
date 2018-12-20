@@ -26,12 +26,13 @@ abstract class Builder implements BuilderInterface
         $this->data = $data;
 
         $this->validate();
+
         return $this->map();
     }
 
     /**
      * Override this method to validate data with custom logic
-     * This method must throw exceptions if fail
+     * This method must throw exceptions if fail.
      */
     public function validate(): void
     {
