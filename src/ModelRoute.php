@@ -10,9 +10,9 @@
 namespace RxThunder\Model;
 
 use Rx\Observable;
-use Th3Mouk\Thunder\Router\AbstractRoute;
-use Th3Mouk\Thunder\Router\AbstractSubject;
-use Th3Mouk\Thunder\Router\DataModel;
+use RxThunder\Core\Router\AbstractRoute;
+use RxThunder\Core\Router\AbstractSubject;
+use RxThunder\Core\Router\DataModel;
 
 abstract class ModelRoute extends AbstractRoute
 {
