@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Th3Mouk\Thunder\Model;
+namespace RxThunder\Model;
 
 use Rx\Observable;
 use Th3Mouk\Thunder\Router\AbstractRoute;

@@ -1,6 +1,6 @@
 {
-  "name": "th3mouk/thunder-model",
-  "description": "Event driven micro CLI framework with Reactive Programming flavors",
+  "name": "rxthunder/model",
+  "description": "Modeling library, DDD oriented, of Event driven CLI micro framework with Reactive Programming flavors",
   "license": "MIT",
   "authors": [
     {
@@ -24,7 +24,7 @@
   "prefer-stable": true,
   "autoload": {
     "psr-4": {
-      "Th3Mouk\\Thunder\\Model\\": "src/"
+      "RxThunder\\Model\\": "src/"
     }
   }
 }
