@@ -14,7 +14,7 @@
     "th3mouk/thunder": "dev-master"
   },
   "require-dev": {
-    "phpstan/phpstan": "^0.10.6",
+    "phpstan/phpstan": "dev-master",
     "friendsofphp/php-cs-fixer": "^2.13",
     "phpro/grumphp": "^0.14.3",
     "sensiolabs/security-checker": "^5.0"
