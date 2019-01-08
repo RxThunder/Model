@@ -46,7 +46,7 @@ abstract class ModelRoute extends AbstractRoute
     {
         $fcqn = $this->getBuilder();
 
-        return (new $fcqn())->build($dataModel->getData());
+        return (new $fcqn())->build($dataModel->getPayload());
     }
 
     abstract public function validate(DataModel $dataModel): bool;

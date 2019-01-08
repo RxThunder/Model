@@ -11,8 +11,8 @@ namespace RxThunder\Model;
 
 final class BuilderDataException extends \RuntimeException
 {
-    public function __construct($data)
+    public function __construct(string $type)
     {
-        parent::__construct(sprintf('The builder only accepts array or json data, %s given', \gettype($data)));
+        parent::__construct(sprintf('The builder only accepts array or json data, %s given', $type));
     }
 }

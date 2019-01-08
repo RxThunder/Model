@@ -9,34 +9,36 @@
 
 namespace RxThunder\Model;
 
+use RxThunder\Core\Router\Payload;
+
 abstract class Builder implements BuilderInterface
 {
-    /**
-     * @var array
-     */
-    protected $data;
-
-    public function build($data)
+    public function build(Payload $payload)
     {
-        if (!\is_array($data)) {
-            if (!\is_array($data = json_decode($data, true))) {
-                throw new BuilderDataException($data);
-            }
+        if (!\in_array($payload->getDataType(), ['string', 'array'])) {
+            throw new BuilderDataException($payload->getDataType());
         }
-        $this->data = $data;
 
-        $this->validate();
+        if ('string' === $payload->getDataType()) {
+            if (!\is_array($data = json_decode($payload->getStringData(), true))) {
+                throw new BuilderDataException($payload->getDataType());
+            }
+        } else {
+            $data = $payload->getArrayData();
+        }
 
-        return $this->map();
+        $this->validate($data);
+
+        return $this->map($data);
     }
 
     /**
      * Override this method to validate data with custom logic
      * This method must throw exceptions if fail.
      */
-    public function validate(): void
+    public function validate(array $data): void
     {
     }
 
-    abstract public function map();
+    abstract public function map(array $data);
 }

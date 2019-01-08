@@ -9,11 +9,13 @@
 
 namespace RxThunder\Model;
 
+use RxThunder\Core\Router\Payload;
+
 interface BuilderInterface
 {
-    public function build($data);
+    public function build(Payload $payload);
 
-    public function validate(): void;
+    public function validate(array $data): void;
 
-    public function map();
+    public function map(array $data);
 }

@@ -1,0 +1,8 @@
+parameters:
+	excludes_analyse:
+		- %rootDir%/../../../vendor
+
+	ignoreErrors:
+		-
+		    message: "#Parameter \\#1 $json of function json_decode expects string, string|null given.#"
+		    path: %currentWorkingDirectory%/src/Builder.php
