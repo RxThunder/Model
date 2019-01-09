@@ -28,7 +28,6 @@ abstract class ModelRoute extends AbstractRoute
         $dataModel = $subject->getDataModel();
 
         return Observable::of($dataModel)
-            ->filter([$this, 'validate'])
             ->map([$this, 'modelize'])
             ->flatMap($this->handler)
             ->subscribe(
@@ -48,8 +47,6 @@ abstract class ModelRoute extends AbstractRoute
 
         return (new $fcqn())->build($dataModel->getPayload());
     }
-
-    abstract public function validate(DataModel $dataModel): bool;
 
     abstract public function getBuilder(): string;
 }
