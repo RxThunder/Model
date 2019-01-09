@@ -17,6 +17,8 @@ use RxThunder\Model\Validation\ValidatorInterface;
 
 abstract class ModelValidationRoute extends AbstractRoute
 {
+    public const VALIDATION_SCHEMA_PATH = 'default.json';
+
     protected $handler;
 
     /**
@@ -56,9 +58,9 @@ abstract class ModelValidationRoute extends AbstractRoute
         return (new $fcqn())->build($dataModel->getPayload());
     }
 
-    public function validate(DataModel $dataModel, string $schema): Observable
+    public function validate(DataModel $dataModel): Observable
     {
-        $this->validator->validate($dataModel->getPayload(), $schema);
+        $this->validator->validate($dataModel->getPayload(), self::VALIDATION_SCHEMA_PATH);
 
         return Observable::of($dataModel);
     }
