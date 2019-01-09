@@ -60,7 +60,7 @@ abstract class ModelValidationRoute extends AbstractRoute
 
     public function validate(DataModel $dataModel): Observable
     {
-        $this->validator->validate($dataModel->getPayload(), self::VALIDATION_SCHEMA_PATH);
+        $this->validator->validate($dataModel->getPayload(), static::VALIDATION_SCHEMA_PATH);
 
         return Observable::of($dataModel);
     }
