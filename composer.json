@@ -11,7 +11,7 @@
   "require": {
     "php": "^7.2",
     "ext-json": "*",
-    "rxthunder/core": "^0.3"
+    "rxthunder/core": "^0.3 || ^0.4"
   },
   "require-dev": {
     "phpstan/phpstan": "dev-master",
