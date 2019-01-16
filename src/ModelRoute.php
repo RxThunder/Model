@@ -43,10 +43,21 @@ abstract class ModelRoute extends AbstractRoute
 
     public function modelize(DataModel $dataModel)
     {
-        $fcqn = $this->getBuilder();
+        /** @var ModelInterface $modelName */
+        $modelName = $this->getModel();
 
-        return (new $fcqn())->build($dataModel->getPayload());
+        $data = $dataModel->getPayload()->getArrayData() ?? [];
+
+        return $modelName::fromPayloadArrayData($data);
     }
 
-    abstract public function getBuilder(): string;
+    public function getRoutePath(): string
+    {
+        /** @var ModelInterface $modelName */
+        $modelName = $this->getModel();
+
+        return $modelName::getRoutingKey();
+    }
+
+    abstract public function getModel(): string;
 }
