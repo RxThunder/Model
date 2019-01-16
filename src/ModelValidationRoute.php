@@ -53,9 +53,20 @@ abstract class ModelValidationRoute extends AbstractRoute
 
     public function modelize(DataModel $dataModel)
     {
-        $fcqn = $this->getBuilder();
+        /** @var ModelInterface $modelName */
+        $modelName = $this->getModel();
 
-        return (new $fcqn())->build($dataModel->getPayload());
+        $data = $dataModel->getPayload()->getArrayData() ?? [];
+
+        return $modelName::fromPayloadArrayData($data);
+    }
+
+    public function getRoutePath(): string
+    {
+        /** @var ModelInterface $modelName */
+        $modelName = $this->getModel();
+
+        return $modelName::getRoutingKey();
     }
 
     public function validate(DataModel $dataModel): Observable
@@ -65,5 +76,5 @@ abstract class ModelValidationRoute extends AbstractRoute
         return Observable::of($dataModel);
     }
 
-    abstract public function getBuilder(): string;
+    abstract public function getModel(): string;
 }

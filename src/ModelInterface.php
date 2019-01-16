@@ -9,10 +9,9 @@
 
 namespace RxThunder\Model;
 
-final class BuilderDataException extends \RuntimeException
+interface ModelInterface
 {
-    public function __construct(string $type)
-    {
-        parent::__construct(sprintf('The builder only accepts array or json data, %s given', $type));
-    }
+    public static function getRoutingKey(): string;
+
+    public static function fromPayloadArrayData(array $data);
 }
